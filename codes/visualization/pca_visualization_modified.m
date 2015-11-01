@@ -42,7 +42,7 @@ prm=prm(I,:);
 
 % Changing the directory. This is directory for Yuksel's computer. Before
 % running the codechange this directory name.
-cd('/Users/Gong/Documents/LENS/codes/results/72-structure_2pt_PCA');
+cd('/Users/Gong/Documents/LENS/results/72-structure_2pt_PCA')
 
 % Loading the PCA matrix
 load 72pt_PC.mat
