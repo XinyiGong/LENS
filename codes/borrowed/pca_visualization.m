@@ -4,7 +4,7 @@ close all
 
 % Change directory to the folders with files. This is directory for
 % Yuksel's computer. Before running the code change this directory name.
-cd('C:\Users\yyabansu3\Desktop\xinyi\10_21_2015');
+cd('/Users/Gong/Documents/Gross_Landfill/10_21_2015');
 
 % Get the list for mat files
 filelist=dir('*.mat');
@@ -42,14 +42,14 @@ prm=prm(I,:);
 
 % Changing the directory. This is directory for Yuksel's computer. Before
 % running the codechange this directory name.
-cd('C:\Users\yyabansu3\Desktop\xinyi\');
+cd('/Users/Gong/Documents/LENS/codes/results/72-structure_2pt_PCA');
 
 % Loading the PCA matrix
 load 72pt_PC.mat
 
 % Specifying the parameter (this is the parameter you will select for
 % different visualization
-parameter=2;
+parameter=1;
 % Finding the unique numbers in that parameters (number of different
 % classes and eventually the number of colors in visualizations
 pl=unique(prm(:,parameter));
