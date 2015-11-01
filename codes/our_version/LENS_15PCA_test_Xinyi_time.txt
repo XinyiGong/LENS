@@ -1,0 +1,2 @@
+loop before actual PCA:12.9sec;
+whole script:52.9sec;

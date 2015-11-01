@@ -1,0 +1,104 @@
+%{
+LENS PCA script
+%}
+clear all
+close all 
+tic
+%declare the homefolder: T20W60 containing D, L, HAZ folders
+%filepath='C:\Users\Andrey\Desktop\ME8883_Materials_Informatics\T20W60 files'
+filepath='C:\Users\xgong42\Documents\some_SPPARKS_folders\T5-X-V2-5-';
+%save_path='F:\MATIN_2015\10_21_2015';
+save_path='C:\Users\xgong42\Documents\MATIN_test_10-25-2015';
+p=1;
+%%%%%%%%%%%%%%%%%p can be removed
+filename='T5-X-V2-5';
+W=dir(filepath);     %create Struct A with directory names
+WSize=StructSize(W);     %obtain number of subfolders
+
+
+Wpath=filepath;
+Wname=filename;
+%%%%%%%don't need filename
+for l=3:WSize
+    filepath=Wpath;
+    filename=Wname;
+    if W(l).isdir~=1
+        continue
+    end
+    %%%%%%%%%%%%%not robust enough
+    filepath=[filepath,'\',W(l).name];
+    filename=[filename,'-',W(l).name];
+   
+        D=dir(filepath); %contains L folders
+        DSize=StructSize(D);
+
+        Dpath=filepath;
+        Dname=filename;
+        for j=3:DSize
+            filepath=Dpath;
+            filename=Dname;
+            if D(j).isdir~=1
+                continue
+            end
+            filepath=[filepath,'\',D(j).name];
+            filename=[filename,'-',D(j).name];
+
+            L=dir(filepath); %contains HAZ5 HAZ20 HAZ35 folders    
+            LSize=StructSize(L);
+
+            Lpath=filepath;
+            Lname=filename;
+            for i=3:LSize
+                filepath=Lpath;
+                filename=Lname;
+                if L(i).isdir~=1        %ignore .DS_Store files
+                    continue
+                end
+                filepath=[filepath,'\',L(i).name];
+                filename=[filename,'-',L(i).name];
+                %else balls=1;
+                %end
+
+                HAZ=dir(filepath);  %contains folder and irrelevant.DS_Store files   
+                HAZSize=StructSize(HAZ);
+                
+                HAZpath=filepath;
+                HAZname=filename;
+                for k=3:HAZSize
+                    filepath=HAZpath;
+                    filename=HAZname;
+                    if HAZ(k).isdir~=1
+                         continue
+                    end
+                    filepath=[filepath,'\',HAZ(k).name];
+                    filename=[filename,'-',HAZ(k).name];
+                    
+                    
+                    dumplevel=dir(filepath);
+                    if dumplevel(4).isdir~=0
+                         continue
+                    end
+                    
+                    filepath=[filepath,'\',dumplevel(4).name];
+                    filename=[filename,'-',dumplevel(4).name];
+                    
+                    data=read_dump(filepath,[300, 300, 200]); %read&reshape data
+                    BWdata=Grain2Boundary(data); %grain boundary segmentation
+                    data=noob2ptauto(BWdata,0); %preform 2pt statistics
+                    %imagesc(data(:,:,100))
+                    save_file=[save_path,'\',num2str(p)];
+                    %save_file=[num2str(p)]                   
+                    save(save_file,'data');
+                    save(save_file,'filename','-append');
+                    p=p+1;
+                    if p==3
+                        break
+                    end
+                end
+            end
+        end
+end
+
+p
+    toc
+%dump.additive4.4
