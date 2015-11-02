@@ -13,7 +13,7 @@ filelist=dir('*.mat');
 dataname={};
 
 % Initialization of parameter matrix
-prm=zeros(size(filelist,1),4);
+prm=zeros(size(filelist,1),5);
 
 for fl=1:length(filelist)
     
@@ -67,7 +67,7 @@ for ii=1:length(pl)
     parleg=[parleg; [char(parleglist(parameter)) ' ' num2str(pl(ii))]];
 end
 grid on
-axis image
+axis equal
 xlabel('PC 1','FontSize',12)
 ylabel('PC 2','FontSize',12)
 zlabel('PC 3','FontSize',12)
@@ -90,7 +90,7 @@ for ii=1:length(pl)
     
 end
 grid on
-axis image
+axis equal
 xlabel('PC 1','FontSize',12)
 ylabel('PC 2','FontSize',12)
 zlabel('PC 3','FontSize',12)

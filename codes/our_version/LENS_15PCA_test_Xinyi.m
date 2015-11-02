@@ -12,7 +12,7 @@ d2pt=199; %dimension of the 2pt-statistics(e.g. for 199*199*199 matrix, d2pt=199
 p=0;
 tic
 GG=zeros(length,d2pt*d2pt*d2pt);
-for i=1:length
+for i=1:10
     name=[path,'/',num2str(i),'.mat'];
     load(name);
     
@@ -40,15 +40,15 @@ for i=1:length
     end
 end
 toc
-%% PCA
-[PC,Var] = PCAConstruct(GG,length);
-
-%%
-% plot(Var)
-%%
-PC1=PC(:,1);
-PC2=PC(:,2);
-PC3=PC(:,3);
-%%
-scatter3(PC1(p),PC2(p),PC3(p),'ro','filled');
-toc
+% %% PCA
+% [PC,Var] = PCAConstruct(GG,length);
+% 
+% %%
+% % plot(Var)
+% %%
+% PC1=PC(:,1);
+% PC2=PC(:,2);
+% PC3=PC(:,3);
+% %%
+% scatter3(PC1(p),PC2(p),PC3(p),'ro','filled');
+% toc
