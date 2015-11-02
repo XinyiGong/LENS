@@ -8,4 +8,4 @@ prmfilename='parameter.mat';
 
 load([filepath,'/',pcafilename]);
 load([filepath,'/',prmfilename]);
-reg=MultiPolyRegress(prm,PC(:,1),3,'range','figure') % Gives you your fit.
+reg=MultiPolyRegress(prm,PC(:,1),3,'Range','figure') % Gives you your fit.
