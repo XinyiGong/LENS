@@ -1,8 +1,9 @@
 % LENS PCA script
-tic
 clear
 clc
 close all 
+
+tic
 %Chage directory to the folder with files
 path='/Users/Gong/Documents/Gross_Landfill/10_21_2015';
 filelist=dir([path,'/*.mat']);

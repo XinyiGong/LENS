@@ -96,6 +96,6 @@ ylabel('PC 2','FontSize',12)
 zlabel('PC 3','FontSize',12)
 set(gca,'FontSize',12)
 
-% save process parameter information correspond to PC matrix
+save p
 prm=prm(:,1:4);
 save('parameter','prm');
