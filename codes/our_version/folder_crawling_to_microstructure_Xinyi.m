@@ -1,14 +1,16 @@
 %{
 LENS PCA script
 %}
-clear all
-close all 
+clear
+close all
+clc
+
 tic
 %declare the homefolder: T20W60 containing D, L, HAZ folders
 %filepath='C:\Users\Andrey\Desktop\ME8883_Materials_Informatics\T20W60 files'
-filepathrt='E:\MATIN_2015_DATA\T5-X-V10-';
+filepathrt='E:\MATIN_2015_DATA\T5-XY-V5-';
 save_path='C:\Users\xgong42\Documents\MATIN_struct';
-p=217;
+p=415;
 filepathtow=char(zeros(1,50));
 filepathtod=char(zeros(1,60));
 filepathtol=char(zeros(1,70));
@@ -89,7 +91,13 @@ for l=3:WSize
                         %save_file=[num2str(p)]                   
                         save(save_file,'BWdata');
                         
+                        %Clean up the filepath to filename
                         filename=filepath(20:end);
+                        c=findstr(filename,'\');
+                        filename(a(1))='';
+                        for i=2:length(c)
+                            filename(a(i)-1)='-';
+                        end
                         save(save_file,'filename','-append');
                          
                         %{
@@ -115,7 +123,7 @@ for l=3:WSize
                     
                     
                 end
-            end
+            end 
         end
 end
 toc
