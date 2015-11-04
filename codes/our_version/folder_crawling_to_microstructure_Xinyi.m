@@ -8,9 +8,9 @@ clc
 tic
 %declare the homefolder: T20W60 containing D, L, HAZ folders
 %filepath='C:\Users\Andrey\Desktop\ME8883_Materials_Informatics\T20W60 files'
-filepathrt='E:\MATIN_2015_DATA\T5-XY-V5-';
-save_path='C:\Users\xgong42\Documents\MATIN_struct';
-p=415;
+filepathrt='E:\MATIN_2015_DATA\T5-X-V2-5-';
+save_path='C:\Users\xgong42\Documents\conversion_trbshoot';
+p=1;
 filepathtow=char(zeros(1,50));
 filepathtod=char(zeros(1,60));
 filepathtol=char(zeros(1,70));
@@ -87,18 +87,18 @@ for l=3:WSize
                     
                         data=read_dump(filepath,[300, 300, 200]); %read&reshape data
                         BWdata=Grain2Boundary(data); %grain boundary segmentation
-                        save_file=[save_path,'\',num2str(p)];
+                        
                         %save_file=[num2str(p)]                   
-                        save(save_file,'BWdata');
+                        save([save_path,'\',num2str(p)],'BWdata');
                         
                         %Clean up the filepath to filename
                         filename=filepath(20:end);
-                        c=findstr(filename,'\');
+                        c=strfind(filename,'\');
                         filename(a(1))='';
-                        for i=2:length(c)
-                            filename(a(i)-1)='-';
+                        for stri=2:length(c)
+                            filename(a(stri)-1)='-';
                         end
-                        save(save_file,'filename','-append');
+                        save([save_path,'\',num2str(p)],'filename','-append');
                          
                         %{
                         filepath=[filepathtodumplevel,'\',dumplevel(m).name];
