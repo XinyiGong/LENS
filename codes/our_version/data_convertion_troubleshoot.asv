@@ -3,13 +3,14 @@ clc
 close all
 namepath='E:\MATIN_2015_DATA';
 checkpath='C:\Users\xgong42\Documents\MATIN_struct';
-level=1;
+level=0;
 name=cell(5,1);
-name{1,1}='T5-XY-V2-5-';
-name{2,1}='W90';
-name{3,1}='D125';
+name{1,1}='T5-X-V2-5-';
+name{2,1}='W60';
+name{3,1}='D100';
 name{4,1}='L50';
 name{5,1}='HAZ20';
+
 
 
 trblist=zeros(500,1);
