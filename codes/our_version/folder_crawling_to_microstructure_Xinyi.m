@@ -1,6 +1,5 @@
-%{
-LENS PCA script
-%}
+% LENS PCA script
+
 clear
 close all
 clc
@@ -88,30 +87,25 @@ for l=3:WSize
                         data=read_dump(filepath,[300, 300, 200]); %read&reshape data
                         BWdata=Grain2Boundary(data); %grain boundary segmentation
                         
-                        %save_file=[num2str(p)]                   
+                        %save_file=[num2str(p)]
+                        p=p+1;                   
                         save([save_path,'\',num2str(p)],'BWdata');
                         
                         %Clean up the filepath to filename
                         filename=filepath(20:end);
                         c=strfind(filename,'\');
-                        filename(a(1))='';
+                        filename(c(1))='';
                         for stri=2:length(c)
-                            filename(a(stri)-1)='-';
+                            filename(c(stri)-1)='-';
                         end
                         save([save_path,'\',num2str(p)],'filename','-append');
-                         
-                        %{
-                        filepath=[filepathtodumplevel,'\',dumplevel(m).name];
-                        disp(filepath);
-                        disp(p);
-                        %}
-                        p=p+1;
-                        %{
-                        if p==3
-                            return
-                        end
                         
-                        %}
+                        
+%                         if p==3
+%                             return
+%                         end
+                        
+                        
                         break;
                     end
                     %%%%%%%%%%core part end here!!!!!!!
