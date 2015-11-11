@@ -63,93 +63,81 @@ for ndz=1:zlength
        if BWdata(xlength,ndy,ndz)==1 && st==1
            histx(chord,1)=histx(chord,1)+1;
            chord=0;
-           st=2;
+       elseif BWdata(xlength-1,ndy,ndz)==0
+           histx(chord,1)=histx(chord,1)+1;
+           chord=0;
        end
     end
 end
 
 
-%% Obtaining Histogram for Y direction
+% Obtaining Histogram for Y direction
 for ndz=1:zlength
     
     for ndx=1:xlength
-        %st marks the states point of grains:2-boundary;1-inside
-        %grain;0-beginning/ending segment
-        st=0;
-        chord=0;
+        
         %Starting point
         if BWdata(ndx,1,ndz)==1
-            st=2;
+            chord=0;
         else
-            st=0;
+            chord=chord+1;
         end
         
         %Middle part
         for ndy=2:(ylength-1) %st marks the starting point of grains that are not part of the periodic boundary
             if BWdata(ndx,ndy,ndz)==1
-                if st==1
-                    histy(chord,1)=histy(chord,1)+1;
+                if BWdata(ndx,ndy-1,ndz)==0
+                    histy(chord+1,1)=histy(chord+1,1)+1;
                     chord=0;
-                    st=2;
-                else
-                    st=2;
                 end
             else
-                if st==2
-                    chord=chord+1;
-                    st=1;
-                end
+                chord=chord+1;
             end
         end
         
         %Last point
-       if BWdata(ndx,ylength,ndz)==1 && st==1
-           histy(chord,1)=histy(chord,1)+1;
+       if BWdata(ndx,ylength,ndz)==0
+           histy(chord+1,1)=histy(chord+1,1)+1;
            chord=0;
-           st=2;
+       elseif BWdata(ndx,ylength-1,ndz)==0
+           histy(chord+1,1)=histy(chord+1,1)+1;
+           chord=0;
        end
     end
 end
 
-%% Obtaining Histogram for Z direction
+% Obtaining Histogram for Z direction
 
 for ndy=1:ylength
     
     for ndx=1:xlength
-        %st marks the states point of grains:2-boundary;1-inside
-        %grain;0-beginning/ending segment
-        st=0;
-        chord=0;
+        
         %Starting point
         if BWdata(ndx,ndy,1)==1
-            st=2;
+            chord=0;
         else
-            st=0;
+            chord=chord+1;
         end
         
         %Middle part
         for ndz=2:(zlength-1) %st marks the starting point of grains that are not part of the periodic boundary
             if BWdata(ndx,ndy,ndz)==1
-                if st==1
-                    histz(chord,1)=histz(chord,1)+1;
+                if BWdata(ndx,ndy,ndz-1)==0
+                    histz(chord+1,1)=histz(chord+1,1)+1;
                     chord=0;
-                    st=2;
-                else
-                    st=2;
                 end
             else
-                if st==2
-                    chord=chord+1;
-                    st=1;
-                end
+                chord=chord+1;
             end
         end
         
         %Last point
-       if BWdata(ndx,ndy,zlength)==1 && st==1
-           histz(chord,1)=histz(chord,1)+1;
+       if BWdata(ndx,ndy,zlength)==0
+           histz(chord+1,1)=histz(chord+1,1)+1;
            chord=0;
-           st=2;
+       elseif BWdata(ndx,ndy,zlength-1)==0
+           histz(chord+1,1)=histz(chord+1,1)+1;
+           chord=0;
        end
     end
 end
