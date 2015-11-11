@@ -1,8 +1,8 @@
 % filename is a string
-% 'BWdata' MUST the variable name of grain boundary structure where '1' is grain boundary and '0' is grain
-function [hist]=chordlengthdist(filename)
+% 'BWdata' MUST be the variable name of grain boundary structure where '1' is grain boundary and '0' is grain
+% 'hist' outputs four columes: x,y,z and total histogram
+function [hist]=chordlengthdist(BWdata)
 
-load(filename)
 
 xlength=size(BWdata,1);
 ylength=size(BWdata,2);
@@ -25,7 +25,7 @@ histz=zeros(numel(class),1);
 % y=0;
 % z=0;
 
-%% Obtaining Histogram for X direction
+% Obtaining Histogram for X direction
 
 for ndz=1:zlength
     
@@ -51,11 +51,9 @@ for ndz=1:zlength
                 else
                     st=2;
                 end
-            else
-                if st==2
+            elseif st
                     chord=chord+1;
                     st=1;
-                end
             end
         end
         
@@ -69,7 +67,7 @@ for ndz=1:zlength
 end
 
 
-%% Obtaining Histogram for Y direction
+% Obtaining Histogram for Y direction
 for ndz=1:zlength
     
     for ndx=1:xlength
@@ -94,11 +92,9 @@ for ndz=1:zlength
                 else
                     st=2;
                 end
-            else
-                if st==2
+            elseif st
                     chord=chord+1;
                     st=1;
-                end
             end
         end
         
@@ -111,7 +107,7 @@ for ndz=1:zlength
     end
 end
 
-%% Obtaining Histogram for Z direction
+% Obtaining Histogram for Z direction
 
 for ndy=1:ylength
     
@@ -137,11 +133,9 @@ for ndy=1:ylength
                 else
                     st=2;
                 end
-            else
-                if st==2
+            elseif st
                     chord=chord+1;
                     st=1;
-                end
             end
         end
         
