@@ -1,4 +1,5 @@
-% filename is a string
+% Attacking Problem: pick a chord, what is the probability of picking a
+% chord with a particular length?
 % 'BWdata' MUST be the variable name of grain boundary structure where '1' is grain boundary and '0' is grain
 % 'hist' outputs four columes: x,y,z and total histogram
 function [hist]=chordlengthdist(BWdata)

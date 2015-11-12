@@ -1,8 +1,8 @@
-% Attacking Problem: pick a chord, what is the probability of picking a
-% chord withparticular length
+% Attacking Problem: pick a point in the structure, what is the probability of picking a
+% chord with a particular length?
 % 'BWdata' MUST be the variable name of grain boundary structure where '1' is grain boundary and '0' is grain
-% 'hist' outputs four columes: x,y,z and total histogram
-function [hist]=chordlengthdist(BWdata)
+% 'hist' outputs four columes: x,y,z
+function [hist]=chordlengthdist2(BWdata)
 
 
 xlength=size(BWdata,1);
@@ -149,8 +149,8 @@ for ndy=1:ylength
     end
 end
 
-histx=histx./sum(histx);
-histy=histy./sum(histy);
-histz=histz./sum(histz);
-histtot=(histx+histy+histz)./sum(histx+histy+histz);
-hist=[histx histy histz histtot];
+
+histx=histx.*class./(xlength*ylength*zlength);
+histy=histy.*class./(xlength*ylength*zlength);
+histz=histz.*class./(xlength*ylength*zlength);
+hist=[histx histy histz];
