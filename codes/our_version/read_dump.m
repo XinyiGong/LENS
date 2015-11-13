@@ -1,4 +1,4 @@
-function Data=read_dump(filename,size)
+function Data=read_dump(filename,sizeof)
 
 delimiterIn = ' ';
 headerlinesIn=9;
@@ -7,7 +7,7 @@ grainid=current.data(:,1:2);
 [~,I]=sort(grainid(:,1),1);
 
 grainid=grainid(I,:);
-
-Data=reshape((grainid(:,2)),size);
+a=size(grainid)
+Data=reshape((grainid(:,2)),sizeof);
 end
 

@@ -10,8 +10,9 @@ tic
 filepathmain='E:\MATIN_2015_DATA';
 %filepathrt='E:\MATIN_2015_DATA\T5-X-V2-5-';
 %save_path='C:\Users\xgong42\Documents\conversion_trbshoot';
-save_path='F:\MATIN_2015\matfile_dump_3';
-p=1;
+save_path='F:\MATIN_2015\matfile_dump_5';
+corrupt_files='F:\MATIN_2015\corrupt';
+p=726;
 filepathtofol=char(zeros(1,50));
 filepathtow=char(zeros(1,60));
 filepathtod=char(zeros(1,70));
@@ -28,7 +29,7 @@ filename=char(zeros(1,110));
 filepathtofol=filepathmain;
 F=dir(filepathtofol);     %create Struct A with directory names
 FSize=StructSize(F);     %obtain number of subfolders
-for f=3:FSize
+for f=13:FSize
     if F(f).isdir~=1
         continue
     end
@@ -81,11 +82,16 @@ for f=3:FSize
                         end
                             [Y,I]=max(v);
 
-                            filepath=[filepathtodumplevel,'\',dumplevel(I+2).name]
-
-                            data=read_dump(filepath,[300, 300, 200]); %read&reshape data
-                            BWdata=Grain2Boundary(data); %grain boundary segmentation
-
+                            filepath=[filepathtodumplevel,'\',dumplevel(I+2).name];
+                            clear v;
+                            [data,trouble]=read_dump_check(filepath,[300, 300, 200]); %read&reshape data
+                            if trouble==0                            
+                                BWdata=Grain2Boundary(data); %grain boundary segmentation
+                            else
+                                mkdir(corrupt_files,F(f).name);
+                                save([corrupt_files,'\',F(f).name,'\',num2str(p)],'filepath');
+                                break;
+                            end
                  
                             
                             save([save_path,'\',F(f).name,'\',num2str(p)],'BWdata');
@@ -122,6 +128,11 @@ for f=3:FSize
 end    
 toc
 
-%exeptions found
-%E:\MATIN_2015_DATA\T20-X-V10-\W80\D100\L70\HAZ20\.dump.additive4.4.R0RU5I
-%E:\MATIN_2015_DATA\T20-X-V15-\W80\D100\L60\HAZ35\.dump.additive4.3.feChAt
+%Trouble files
+%E:\MATIN_2015_DATA\T20-X-V2-5-\W70\D125\L60\HAZ5\dump.additive4.13
+
+%Hard trouble:
+%E:\MATIN_2015_DATA\T35-X-V10-\W60\D100\L50\HAZ20\dump.additive4.4
+
+% Elapsed time is 32299.402390 seconds. 15 folders
+
