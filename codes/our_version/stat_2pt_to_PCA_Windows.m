@@ -6,7 +6,8 @@ close all
 tic
 %Chage directory to the folder with files
 %path='/Users/Gong/Documents/Gross_Landfill/10_21_2015';
-path='C:\Users\Andrey\Google Drive\MATIN 2015\Data\10_21_2015';
+%path='C:\Users\Andrey\Google Drive\MATIN 2015\Data\10_21_2015';
+path='C:\Users\Andrey\Desktop\my 72 structures';
 
 filelist=dir([path,'\*.mat']);
 
@@ -43,7 +44,8 @@ end
 %[PC,Var] = PCAConstruct(GG,3);
 % save PC, Var, rowname
 
-savepath='C:\Users\Andrey\Google Drive\MATIN 2015\Data\72_PC_VAR';
+savepath='C:\Users\Andrey\Desktop\yo_mama_test';
+%savepath='C:\Users\Andrey\Google Drive\MATIN 2015\Data\72_PC_VAR';
 save([savepath,'\metadata'],'rowname');
 save([savepath,'\72_2pt_PCA'],'PC');
 save([savepath,'\72_2pt_PC_Var'],'Var');

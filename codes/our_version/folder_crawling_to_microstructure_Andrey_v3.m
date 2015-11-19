@@ -10,9 +10,10 @@ tic
 filepathmain='E:\MATIN_2015_DATA';
 %filepathrt='E:\MATIN_2015_DATA\T5-X-V2-5-';
 %save_path='C:\Users\xgong42\Documents\conversion_trbshoot';
-save_path='F:\MATIN_2015\matfile_dump_5';
-corrupt_files='F:\MATIN_2015\corrupt';
-p=726;
+save_path='F:\MATIN_2015\matfile_dump_6';
+corrupt_files='F:\MATIN_2015\corrupt_6';
+missing_files='F:\MATIN_2015\missing_6';
+p=82;
 filepathtofol=char(zeros(1,50));
 filepathtow=char(zeros(1,60));
 filepathtod=char(zeros(1,70));
@@ -29,7 +30,7 @@ filename=char(zeros(1,110));
 filepathtofol=filepathmain;
 F=dir(filepathtofol);     %create Struct A with directory names
 FSize=StructSize(F);     %obtain number of subfolders
-for f=13:FSize
+for f=4:FSize
     if F(f).isdir~=1
         continue
     end
@@ -84,6 +85,14 @@ for f=13:FSize
 
                             filepath=[filepathtodumplevel,'\',dumplevel(I+2).name];
                             clear v;
+                            
+                            a=strfind(dumplevel(I+2).name,'dump.additive');
+                            a=size(a);
+                            if a(1)==0
+                                mkdir(missing_files,F(f).name);
+                                save([missing_files,'\',F(f).name,'\',num2str(p)],'filepath');                                
+                                continue;
+                            end
                             [data,trouble]=read_dump_check(filepath,[300, 300, 200]); %read&reshape data
                             if trouble==0                            
                                 BWdata=Grain2Boundary(data); %grain boundary segmentation
