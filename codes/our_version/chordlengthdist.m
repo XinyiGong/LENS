@@ -1,7 +1,7 @@
-% Attacking Problem: pick a chord, what is the probability of picking a
+% Attacking Problem: pick a chord out of all the chords, what is the probability of picking a
 % chord with a particular length?
 % 'BWdata' MUST be the variable name of grain boundary structure where '1' is grain boundary and '0' is grain
-% 'hist' outputs four columes: x,y,z and total histogram
+% 'hist' outputs four columes: x,y,z and 'edge chords' in x,y,z directions
 function [hist]=chordlengthdist(BWdata)
 
 
@@ -18,6 +18,9 @@ chord=0;
 histx=zeros(numel(class),1);
 histy=zeros(numel(class),1);
 histz=zeros(numel(class),1);
+histxe=zeros(numel(class),1);
+histye=zeros(numel(class),1);
+histze=zeros(numel(class),1);
 
 % stx=1;
 % sty=1;
@@ -39,6 +42,7 @@ for ndz=1:zlength
         if BWdata(1,ndy,ndz)==1
             st=2;
         else
+            chord=1;
             st=0;
         end
         
@@ -49,12 +53,16 @@ for ndz=1:zlength
                     histx(chord,1)=histx(chord,1)+1;
                     chord=0;
                     st=2;
-                else
+                elseif st==0
+                    histxe(chord,1)=histxe(chord,1)+1;
+                    chord=0;
                     st=2;
                 end
             elseif st
                     chord=chord+1;
                     st=1;
+            elseif st==0
+                chord=chord+1;
             end
         end
         
@@ -63,6 +71,10 @@ for ndz=1:zlength
            histx(chord,1)=histx(chord,1)+1;
            chord=0;
            st=2;
+       elseif BWdata(xlength,ndy,ndz)==0
+           histxe(chord+1,1)=histxe(chord+1,1)+1;
+           chord=0;
+           st=0;
        end
     end
 end
@@ -152,5 +164,4 @@ end
 histx=histx./sum(histx);
 histy=histy./sum(histy);
 histz=histz./sum(histz);
-histtot=(histx+histy+histz)./sum(histx+histy+histz);
-hist=[histx histy histz histtot];
+hist=[histx histy histz];

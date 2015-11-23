@@ -3,7 +3,7 @@ clc
 close all
 namepath='E:\MATIN_2015_DATA';
 checkpath='C:\Users\xgong42\Documents\MATIN_struct';
-level=0;
+level=1;
 name=cell(5,1);
 name{1,1}='T5-X-V2-5-';
 name{2,1}='W60';
