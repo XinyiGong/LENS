@@ -1,8 +1,7 @@
 % filename is a string
 % 'BWdata' MUST the variable name of grain boundary structure where '1' is grain boundary and '0' is grain
-function [hist]=chordlengthdist(filename)
+function [hist]=chordlengthdist_v1(BWdata)
 
-load(filename)
 
 xlength=size(BWdata,1);
 ylength=size(BWdata,2);

@@ -2,10 +2,10 @@ close all
 clear
 clc
 tic
-filepath='C:\Users\xgong42\Documents\MATIN_struct';%grain boundary data folder
-filename=[filepath,'\','128.mat'];% plus GBdata .mat file name
+filepath='/Users/Gong/Desktop/first_72_Test';%grain boundary data folder
+filename=[filepath,'/','1.mat'];% plus GBdata .mat file name
 load(filename);
-[hist]=chordlengthdist2(BWdata);
+[hist]=chordlengthdist_v1(BWdata);
 toc
 
 % savepath='C:\Users\xgong42\Documents\chordlength_72_Test';

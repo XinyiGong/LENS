@@ -92,22 +92,27 @@ for ndz=1:zlength
         if BWdata(ndx,1,ndz)==1
             st=2;
         else
+            chord=1;
             st=0;
         end
         
         %Middle part
-        for ndy=2:(ylength-1) %st marks the starting point of grains that are not part of the periodic boundary
+        for ndy=2:(ylength-1)
             if BWdata(ndx,ndy,ndz)==1
                 if st==1
                     histy(chord,1)=histy(chord,1)+1;
                     chord=0;
                     st=2;
-                else
+                elseif st==0
+                    histye(chord,1)=histye(chord,1)+1;
+                    chord=0;
                     st=2;
                 end
             elseif st
                     chord=chord+1;
                     st=1;
+            elseif st==0
+                chord=chord+1;
             end
         end
         
@@ -116,6 +121,10 @@ for ndz=1:zlength
            histy(chord,1)=histy(chord,1)+1;
            chord=0;
            st=2;
+       elseif BWdata(ndx,ylength,ndz)==0
+           histye(chord+1,1)=histye(chord+1,1)+1;
+           chord=0;
+           st=0;
        end
     end
 end
@@ -133,6 +142,7 @@ for ndy=1:ylength
         if BWdata(ndx,ndy,1)==1
             st=2;
         else
+            chord=1;
             st=0;
         end
         
@@ -143,12 +153,16 @@ for ndy=1:ylength
                     histz(chord,1)=histz(chord,1)+1;
                     chord=0;
                     st=2;
-                else
+                elseif st==0
+                    histze(chord,1)=histze(chord,1)+1;
+                    chord=0;
                     st=2;
                 end
             elseif st
                     chord=chord+1;
                     st=1;
+            elseif st==0
+                chord=chord+1;
             end
         end
         
@@ -157,11 +171,20 @@ for ndy=1:ylength
            histz(chord,1)=histz(chord,1)+1;
            chord=0;
            st=2;
+       elseif BWdata(ndx,ndy,zlength)==0
+           histze(chord+1,1)=histze(chord+1,1)+1;
+           chord=0;
+           st=0;
        end
     end
 end
-
-histx=histx./sum(histx);
-histy=histy./sum(histy);
-histz=histz./sum(histz);
-hist=[histx histy histz];
+sumx=sum(histx)+sum(histxe);
+sumy=sum(histy)+sum(histye);
+sumz=sum(histz)+sum(histze);
+histx=histx./sumx;
+histy=histy./sumy;
+histz=histz./sumz;
+histxe=histxe./sumx;
+histye=histye./sumy;
+histze=histze./sumz;
+hist=[histx histy histz histxe histye histze];
