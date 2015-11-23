@@ -18,6 +18,9 @@ chord=0;
 histx=zeros(numel(class),1);
 histy=zeros(numel(class),1);
 histz=zeros(numel(class),1);
+histxe=zeros(numel(class),1);
+histye=zeros(numel(class),1);
+histze=zeros(numel(class),1);
 
 % stx=1;
 % sty=1;
@@ -39,6 +42,7 @@ for ndz=1:zlength
         if BWdata(1,ndy,ndz)==1
             st=2;
         else
+            chord=1;
             st=0;
         end
         
@@ -49,12 +53,16 @@ for ndz=1:zlength
                     histx(chord,1)=histx(chord,1)+1;
                     chord=0;
                     st=2;
-                else
+                elseif st==0
+                    histxe(chord,1)=histxe(chord,1)+1;
+                    chord=0;
                     st=2;
                 end
             elseif st
                     chord=chord+1;
                     st=1;
+            elseif st==0
+                chord=chord+1;
             end
         end
         
@@ -63,6 +71,10 @@ for ndz=1:zlength
            histx(chord,1)=histx(chord,1)+1;
            chord=0;
            st=2;
+       elseif BWdata(xlength,ndy,ndz)==0
+           histxe(chord+1,1)=histxe(chord+1,1)+1;
+           chord=0;
+           st=0;
        end
     end
 end
@@ -80,22 +92,27 @@ for ndz=1:zlength
         if BWdata(ndx,1,ndz)==1
             st=2;
         else
+            chord=1;
             st=0;
         end
         
         %Middle part
-        for ndy=2:(ylength-1) %st marks the starting point of grains that are not part of the periodic boundary
+        for ndy=2:(ylength-1)
             if BWdata(ndx,ndy,ndz)==1
                 if st==1
                     histy(chord,1)=histy(chord,1)+1;
                     chord=0;
                     st=2;
-                else
+                elseif st==0
+                    histye(chord,1)=histye(chord,1)+1;
+                    chord=0;
                     st=2;
                 end
             elseif st
                     chord=chord+1;
                     st=1;
+            elseif st==0
+                chord=chord+1;
             end
         end
         
@@ -104,6 +121,10 @@ for ndz=1:zlength
            histy(chord,1)=histy(chord,1)+1;
            chord=0;
            st=2;
+       elseif BWdata(ndx,ylength,ndz)==0
+           histye(chord+1,1)=histye(chord+1,1)+1;
+           chord=0;
+           st=0;
        end
     end
 end
@@ -121,6 +142,7 @@ for ndy=1:ylength
         if BWdata(ndx,ndy,1)==1
             st=2;
         else
+            chord=1;
             st=0;
         end
         
@@ -131,12 +153,16 @@ for ndy=1:ylength
                     histz(chord,1)=histz(chord,1)+1;
                     chord=0;
                     st=2;
-                else
+                elseif st==0
+                    histze(chord,1)=histze(chord,1)+1;
+                    chord=0;
                     st=2;
                 end
             elseif st
                     chord=chord+1;
                     st=1;
+            elseif st==0
+                chord=chord+1;
             end
         end
         
@@ -145,12 +171,19 @@ for ndy=1:ylength
            histz(chord,1)=histz(chord,1)+1;
            chord=0;
            st=2;
+       elseif BWdata(ndx,ndy,zlength)==0
+           histze(chord+1,1)=histze(chord+1,1)+1;
+           chord=0;
+           st=0;
        end
     end
 end
 
-
 histx=histx.*class./(xlength*ylength*zlength);
 histy=histy.*class./(xlength*ylength*zlength);
 histz=histz.*class./(xlength*ylength*zlength);
-hist=[histx histy histz];
+histxe=histxe.*class./(xlength*ylength*zlength);
+histye=histye.*class./(xlength*ylength*zlength);
+histze=histze.*class./(xlength*ylength*zlength);
+
+hist=[histx histy histz histxe histye histze];

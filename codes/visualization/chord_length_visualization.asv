@@ -5,7 +5,7 @@ clc
 % % % cd('/Users/Gong/Desktop/chord_length_72');
 
 i=1;
-plotend=300;
+plotend=100;
 
 % % % load(['chordlength_',num2str(i),'.mat']);
 
