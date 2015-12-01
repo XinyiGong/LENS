@@ -1,10 +1,8 @@
 % Attacking Problem: pick a chord out of all the chords(including 'edge chords'), what is the probability of picking a
 % chord with a particular length?
 % 'BWdata' MUST be the variable name of grain boundary structure where '1' is grain boundary and '0' is grain
-% 'hist' outputs six columes: x,y,z and 'edge chords' in x,y,z directions
-% 'stat' outputs six by one matrix: each colunm represents the fraction of
-% chords in x,y,z direction and 'edge chords' in x,y,z directions
-function [hist,stat]=chordlengthdist(BWdata)
+% 'hist' outputs four columes: x,y,z and 'edge chords' in x,y,z directions
+function [hist]=chordlengthdist(BWdata)
 
 
 xlength=size(BWdata,1);
@@ -190,4 +188,3 @@ histxe=histxe./sumx;
 histye=histye./sumy;
 histze=histze./sumz;
 hist=[histx histy histz histxe histye histze];
-stat=[sum(histx) sum(histy) sum(histz) sum(histxe) sum(histye) sum(histze)];

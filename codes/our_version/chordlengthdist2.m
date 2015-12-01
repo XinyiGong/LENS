@@ -1,8 +1,11 @@
 % Attacking Problem: pick a point out of all the points in the structure, what is the probability of picking a
 % chord with a particular length?
 % 'BWdata' MUST be the variable name of grain boundary structure where '1' is grain boundary and '0' is grain
-% 'hist' outputs four columes: x,y,z
-function [hist]=chordlengthdist2(BWdata)
+% 'hist' outputs six columes: chords in x,y,z directions and 'edge
+% chords'in x,y,z directions
+% 'stat' outputs six by one matrix: the fraction of chords and edge chords
+% in each direction.
+function [hist,stat]=chordlengthdist2(BWdata)
 
 
 xlength=size(BWdata,1);
@@ -187,3 +190,5 @@ histye=histye.*class./(xlength*ylength*zlength);
 histze=histze.*class./(xlength*ylength*zlength);
 
 hist=[histx histy histz histxe histye histze];
+stat=[sum(histx) sum(histy) sum(histz) sum(histxe) sum(histye) sum(histze)];
+
