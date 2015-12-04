@@ -4,7 +4,7 @@
 % 'hist' outputs six columes: x,y,z and 'edge chords' in x,y,z directions
 % 'stat' outputs six by one matrix: each colunm represents the fraction of
 % chords in x,y,z direction and 'edge chords' in x,y,z directions
-function [hist,stat]=CLD1_NE(BWdata)
+function [hist]=CLD1_NE(BWdata)
 
 
 xlength=size(BWdata,1);

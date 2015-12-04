@@ -5,7 +5,7 @@
 % chords'in x,y,z directions
 % 'stat' outputs six by one matrix: the fraction of chords and edge chords
 % in each direction.
-function [hist,stat]=CLD2_E(BWdata)
+function [hist]=CLD2_NE(BWdata)
 
 
 xlength=size(BWdata,1);
@@ -183,21 +183,14 @@ for ndy=1:ylength
 end
 
 histx=histx.*class;
-histxe=histxe*class;
-sumx=sum(histx)+sum(histxe);
+sumx=sum(histx);
 histy=histy.*class;
-histye=histye*class;
-sumy=sum(histy)+sum(histye);
+sumy=sum(histy);
 histz=histz.*class;
-histze=histze*class;
-sumz=sum(histz)+sum(histze);
+sumz=sum(histz);
 histx=histx./sumx;
 histy=histy./sumy;
 histz=histz./sumz;
-histxe=histxe./sumx;
-histye=histye./sumy;
-histze=histze./sumz;
 
-hist=[histx+histxe histy+histye histz+histze];
-stat=[sum(histxe) sum(histye) sum(histze)];
+hist=[histx histy histz];
 

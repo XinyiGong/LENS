@@ -11,7 +11,7 @@ plotend=300;
 
 colorstring = 'bgrymc';
 % % % subplot(1,2,1)
-for j=1:6
+for j=1:3
 %     if j==1
 %         color='r';
 %     elseif j==2
@@ -26,7 +26,8 @@ end
 grid on
 xlabel('Chord Length','FontSize',12)
 ylabel('Frequency','FontSize',12)
-set(legend(h(1:6),'X Direction','Y Direction','Z Direction','X Edge','Y Edge','Z Edge'),'FontSize',12);
+% set(legend(h(1:6),'X Direction','Y Direction','Z Direction','X Edge','Y Edge','Z Edge'),'FontSize',12);
+set(legend(h(1:3),'X Direction','Y Direction','Z Direction'),'FontSize',12);
 
 
 % % % subplot(1,2,2)
