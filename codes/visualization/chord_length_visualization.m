@@ -28,7 +28,7 @@ xlabel('Chord Length','FontSize',12)
 ylabel('Frequency','FontSize',12)
 % set(legend(h(1:6),'X Direction','Y Direction','Z Direction','X Edge','Y Edge','Z Edge'),'FontSize',12);
 set(legend(h(1:3),'X Direction','Y Direction','Z Direction'),'FontSize',12);
-
+axis([0 300 0 0.09])
 
 % % % subplot(1,2,2)
 % % % plot(1:plotend,hist(1:plotend,4))

@@ -1,6 +1,5 @@
 % LENS PCA script
 
-tic
 %Chage directory to the folder with files
 path='/nv/hp22/xgong42/scratch/2pt_data';
 
@@ -16,7 +15,7 @@ rowname=char(zeros(length(filelist),100));
 %rowname=char(zeros(length(3),100));
 
 for i=1:length(filelist)
-    load([path,'/',filelist(i).name]);
+    load([path,'/',num2str(i),'.mat']);
     %Get file names
     %rowname(i,1:3)=filename;
     rowname(i,1:length(filename))=filename;
@@ -33,4 +32,3 @@ savepath='/nv/hp22/xgong42/scratch/2pt_reduced_PCA/Tpt_red_PCA_full';
 save([savepath,'/metadata'],'rowname');
 save([savepath,'/1799_2pt_PCA'],'PC');
 save([savepath,'/1799_2pt_PC_Var'],'Var');
-toc
