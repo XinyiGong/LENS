@@ -1,0 +1,14 @@
+#CLD1_PCA
+#PBS -N CLD1_PCA
+#PBS -l nodes=1:ppn=1
+#PBS -l pmem=64gb
+#PBS -l walltime=40:00:00
+#PBS -q prometforce-6
+#PBS -j oe
+#PBS -o matlog
+#PBS -m abe
+#PBS -M adotsenko3@gatech.edu
+
+cd $PBS_O_WORKDIR
+module load matlab
+matlab -r "CLD2_NE_PCAXYZ"
