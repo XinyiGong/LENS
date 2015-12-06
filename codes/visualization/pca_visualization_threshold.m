@@ -1,6 +1,7 @@
 %% Load PC, metadata(prm), stats
 
 %% Mark structure according to threshold and dimension
+%  Plot PCA
 threshold=0.05;
 dm=1;
 
@@ -10,8 +11,6 @@ for i=1:size(stats,2)
         showprm(i)=1;
     end
 end
-
-%% Plot PCA
 cmap=hsv(2);
 plot3(PC(logical(showprm),1),PC(logical(showprm),2),PC(logical(showprm),3),'kd','MarkerFaceColor',cmap(1,:),'MarkerSize',8);
 hold on
