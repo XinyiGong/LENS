@@ -2,7 +2,7 @@
 
 %% Mark structure according to threshold and dimension
 %  Plot PCA
-threshold=0.05;
+threshold=0.05 ;
 dm=1;
 
 showprm=zeros(1,size(stats,2));

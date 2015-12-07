@@ -1,5 +1,6 @@
-close all
+% close all
 % % % clear
+figure(2)
 clc
 
 % % % cd('/Users/Gong/Desktop/chord_length_72');
@@ -19,7 +20,7 @@ for j=1:3
 %     else
 %         color='b';
 %     end
-    h(j)=plot(1:plotend,hist(1:plotend,j),'Color', colorstring(j));
+    h(j)=plot(1:plotend,hist2(1:plotend,j),'Color', colorstring(j));
     hold on;
 end
 
@@ -28,7 +29,8 @@ xlabel('Chord Length','FontSize',12)
 ylabel('Frequency','FontSize',12)
 % set(legend(h(1:6),'X Direction','Y Direction','Z Direction','X Edge','Y Edge','Z Edge'),'FontSize',12);
 set(legend(h(1:3),'X Direction','Y Direction','Z Direction'),'FontSize',12);
-axis([0 300 0 0.09])
+% axis([0 300 0 0.09])
+title('2')
 
 % % % subplot(1,2,2)
 % % % plot(1:plotend,hist(1:plotend,4))
