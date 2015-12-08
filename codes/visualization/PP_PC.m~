@@ -1,0 +1,8 @@
+scatter3(prm(PP7list(:,1),1),prm(PP7list(:,1),3),PC(c,1),20*ones(size(prm(PP7list(:,1),1))),prm(PP7list(:,1),7),'filled');
+grid on
+xlabel('T','FontSize',12)
+ylabel('V','FontSize',12)
+zlabel('PC 1','FontSize',12)
+set(gca,'FontSize',12)
+h=title('Procee Parameter - Principle Component');
+set(h,'FontSize',12);

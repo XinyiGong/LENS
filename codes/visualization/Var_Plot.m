@@ -1,5 +1,5 @@
 close all
-t=5;
+t=10;
 x=[1:t];
 y=zeros(1,t);
 y(1,1)=Var(1,1);
