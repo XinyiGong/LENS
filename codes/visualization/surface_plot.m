@@ -1,7 +1,7 @@
 %% Set X,Y range and term number
 X=[5:35];
 Y=[2:16];
-termnumb=10;
+termnumb=15;
 
 for i=1:size(Y,2)
     X(i,:)=X(1,:);
