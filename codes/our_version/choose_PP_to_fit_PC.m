@@ -3,7 +3,7 @@ comb=combnk([1 3 4 5 6 7],3);
 %Set variable for rsquare,cvrsquare,mae,cvmae
 rne=zeros(size(comb,1),6);
 %Set PC to fit
-pcn=3;
+pcn=1;
 %Set degree to fit
 deg=2;
 
