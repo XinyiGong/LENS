@@ -13,10 +13,12 @@ set(ax,'XTick',x)
 hold on
 
 grid on
-title('PC vs. Accumulated Variance');
-xlabel('PC','FontSize',12)
-ylabel('% Accumulated Variance','FontSize',12)
+title('PC vs. Accumulated Variance','FontSize',36);
+xlabel('PC','FontSize',36)
+ylabel('% Accumulated Variance','FontSize',36)
+set(gca,'FontSize',36)
+axis([1 10 70 100])
 hold on
 % % % % for i=1:t
-text(x,100*y,num2str((100*y)'),'HorizontalAlignment','center');
+text(x(1:3),100*y(1:3),num2str((100*y(1:3))'),'HorizontalAlignment','center','FontSize',36);
 % end

@@ -6,7 +6,7 @@ for i1=1:3
             for i4=1:3
                 for i5=1:3
                     for i6=1:3
-reg2{ii} = MultiPolyRegress(prm(:,[1 3 5 4 6 7]),PC(:,1),3,[i1 i2 i3 i4 i5 i6],'range');
+reg2{ii} = MultiPolyRegress2(prm(:,[1 3 5 4 6 7]),PC(:,1),3,[i1 i2 i3 i4 i5 i6],'range');
 if min>reg2{ii}.MAE
     min=reg2{ii}.MAE;
     ndx=[i1 i2 i3 i4 i5 i6];
