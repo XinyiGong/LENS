@@ -22,10 +22,13 @@ end
 
 cb=allcomb(choice{:});
 
+%eliminate the all zero combination
+cb=cb(2:size(cb,1),:);
+
 expinf=zeros(size(cb,1),5);
-for ii=2:size(cb,1)
-    reg2{ii} = MultiPolyRegress2(prm(:,cn),PC(:,fcn),deg,cb(ii,:),'range');
-    expinf(ii,:)=[reg2{ii}.MAE reg2{ii}.RSquare reg2{ii}.CVMAE reg2{ii}.CVRSquare reg2{ii}.flag];
+for ii=1:size(cb,1)
+    reg2= MultiPolyRegress2(prm(:,cn),PC(:,fcn),deg,cb(ii,:),'range');
+    expinf(ii,:)=[reg2.MAE reg2.RSquare reg2.CVMAE reg2.CVRSquare reg2.flag];
 end
 %
 [~,I]=sort(expinf(:,1));
