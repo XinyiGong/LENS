@@ -20,7 +20,7 @@ for j=1:3
 %     else
 %         color='b';
 %     end
-    h(j)=plot(1:plotend,str189(1:plotend,j),'Color', colorstring(j));
+    h(j)=plot(1:plotend,str136(1:plotend,j),'Color', colorstring(j));
     hold on;
 end
 
@@ -30,7 +30,7 @@ ylabel('Frequency','FontSize',36)
 % set(legend(h(1:6),'X Direction','Y Direction','Z Direction','X Edge','Y Edge','Z Edge'),'FontSize',12);
 set(legend(h(1:3),'X Direction','Y Direction','Z Direction'),'FontSize',36);
 % axis([0 300 0 0.09])
-title('V=2.5 W=90','FontSize',36)
+title('V=2.5 W=60','FontSize',36)
 set(gca,'fontsize',36)
 axis([0 50 0 0.25])
 

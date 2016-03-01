@@ -1,0 +1,14 @@
+PCs=zeros(1350,3);
+F=reg.PolynomialExpression;
+
+for i=1:1350
+    PCs(i,1)=F(prm(i,1),prm(i,3),prm(i,4),prm(i,5),prm(i,6),prm(i,7));
+end
+
+Basist=Basis';
+Basistt=Basist(1:3,:);
+Bs=PCs*Basistt;
+Br=GG;
+for i=1:900
+    Br(:,i)=GG(:,i)-mean(GG(:,i));
+end
