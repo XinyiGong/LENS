@@ -2,8 +2,8 @@
 statloadpath='/Users/Gong/Desktop/LENS/Data/Statistics/CLD2_NE/';
 selectloadpath='/Users/Gong/Desktop/LENS/Data/PP/';
 savepath = '/Users/Gong/Desktop/LENS/Data/Statistics/';
-ggname = 'CLD2_NE_noW70';
-selectdata = 'w70ind';
+ggname = 'CLD2_NE_V7p5';
+selectdata = 'v7p5ind';
 
 % Initiation
 load([selectloadpath,selectdata]);
