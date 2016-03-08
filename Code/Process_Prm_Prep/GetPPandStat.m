@@ -1,8 +1,25 @@
-%% Specify the parameters here
+% Define paths and names
+strpath = '/Users/Gong/Desktop/LENS/Data/Statistics/ChLOrig/';
+savepppath = '/Users/Gong/Desktop/LENS/Data/PP/';
+saveppname = 'metadata_ChLOrig';
+savestatpath = '/Users/Gong/Desktop/LENS/Data/Statistics/';
+savestatname = 'ChLOrig';
+
+% Specify the parameters here
 prnum=8;
 parlist={'T','X','V','W','D','L','HAZ','dump.additive4'};
 
-%% Segment the characters into the ctchprm
+% Fetch all the structure names and data
+lst = dir([strpath,'*.mat']);
+rowname=char(zeros(size(lst,1),100));
+GG=zeros(size(lst,1),900);
+for i = 1:size(lst,1)
+    load([strpath,num2str(i),'.mat']);
+    rowname(i,1:length(filename))=filename;
+    GG(i,:)=[hist(:,1)' hist(:,2)' hist(:,3)'];
+end
+
+% Segment the characters into the ctchprm
 ctchprm=cell(size(rowname,1),prnum);
 for fl=1:size(rowname,1);
     % Scaning the parameters from string
@@ -22,7 +39,7 @@ for fl=1:size(rowname,1);
     end
 end
 
-%% Need to be specified for different cases
+% Need to be specified for different cases
 prm=zeros(size(rowname,1),prnum);
 for fl=1:size(rowname,1);
     prm(fl,1)=sscanf(ctchprm{fl,1},'%i-',[1,inf]);
@@ -44,3 +61,7 @@ for fl=1:size(rowname,1);
     prm(fl,8)=sscanf(ctchprm{fl,8},'ump.additive4.%i-',[1,inf]);
 
 end
+
+% Save
+save([savepppath,saveppname],'parlist','prm');
+save([savestatpath,savestatname],'GG');
