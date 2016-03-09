@@ -17,7 +17,7 @@ title('PC vs. Accumulated Variance','FontSize',18);
 xlabel('PC','FontSize',18)
 ylabel('% Accumulated Variance','FontSize',18)
 set(gca,'FontSize',18)
-axis([1 10 70 100])
+axis([1 10 50 100])
 hold on
 % % % % for i=1:t
 text(x(1:3),100*y(1:3),num2str((100*y(1:3))'),'HorizontalAlignment','center','FontSize',18);
