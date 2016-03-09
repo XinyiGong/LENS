@@ -1,12 +1,12 @@
 % Chage directory to the folder with files
 statpath='/Users/Gong/Desktop/LENS/Data/Statistics/';
-statname = 'ChLOrig_V7p5W70';
+statname = 'ChLOrig_HC';
 pcpath = '/Users/Gong/Desktop/LENS/Data/PC/';
-pcname = 'PC_ChLOrig_noV7p5W70';
+pcname = 'PC_ChLOrig_HC';
 
 % Initiation
 load([statpath,statname]);
-GG = GGs{1,2};
+% % GG = GGs{1,2};
 Mean = zeros(1,size(GG,2));
 
 % PCA

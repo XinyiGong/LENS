@@ -13,10 +13,12 @@ parlist={'T','X','V','W','D','L','HAZ','dump.additive4'};
 lst = dir([strpath,'*.mat']);
 rowname=char(zeros(size(lst,1),100));
 GG=zeros(size(lst,1),900);
+Edge=zeros(size(lst,1),3);
 for i = 1:size(lst,1)
     load([strpath,num2str(i),'.mat']);
     rowname(i,1:length(filename))=filename;
     GG(i,:)=[hist(:,1)' hist(:,2)' hist(:,3)'];
+    Edge(i,:)=edge;
 end
 
 % Segment the characters into the ctchprm
@@ -64,4 +66,4 @@ end
 
 % Save
 save([savepppath,saveppname],'parlist','prm');
-save([savestatpath,savestatname],'GG');
+save([savestatpath,savestatname],'GG','Edge');
