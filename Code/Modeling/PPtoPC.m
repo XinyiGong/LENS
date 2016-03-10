@@ -2,14 +2,15 @@
 modelpath = '/Users/Gong/Desktop/LENS/Data/PPtoPCModels/';
 pppath = '/Users/Gong/Desktop/LENS/Data/PP/';
 savepcpath = '/Users/Gong/Desktop/LENS/Data/PC/';
-pcnb = 3;
+pcnb = 10;
 modelname1 = 'model_PP134567_PC';
-modelname2 = '_deg3_PCAXYZ_CLD2_NE_noV7p5';
-ppname = 'metadata_V7p5';
-savepcname = 'ModelCreatedPCs_V7p5';
+modelname2 = '_deg3_ChLOrig_HC_V7p5W70';
+ppname = 'metadata_ChLOrig_HC_V7p5W70';
+savepcname = 'ModelCreatedPCs_ChLOrig_HC_V7p5W70';
 
 % Loading and initialize
 load([pppath,ppname]);
+prm = prms{1};
 PCs = zeros(size(prm,1),pcnb);
 
 % Acquire PC values

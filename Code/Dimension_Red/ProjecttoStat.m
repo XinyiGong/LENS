@@ -1,10 +1,10 @@
 % Define paths and names
 pcpath = '/Users/Gong/Desktop/LENS/Data/PC/';
-pcname = 'ModelCreatedPCs_V7p5';
+pcname = 'ModelCreatedPCs_ChLOrig_HC_V7p5W70';
 trainpcpath = '/Users/Gong/Desktop/LENS/Data/PC/';
-trainpcname = 'CLD2_NE_PCAXYZ_noV7p5';
+trainpcname = 'PC_ChLOrig_HC_V7p5W70';
 savestatpath = '/Users/Gong/Desktop/LENS/Data/Statistics/';
-savestatname = 'Backproject_CLD2_NE_V7p5';
+savestatname = 'Backproject_ChLOrig_HC_V7p5W70';
 
 
 % Load
