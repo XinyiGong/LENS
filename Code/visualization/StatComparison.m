@@ -1,9 +1,9 @@
 % Define paths and names
 saveerrorpath = '/Users/Gong/Desktop/LENS/Data/Visual/HardSplit_V7p5W70_HC/';
-saveerrorname = 'error__ChLOrig_HC_V7p5W70';
+saveerrorname = 'error__ChLOrig_PC1234_HC_V7p5W70';
 
 % Compare GG(CLD statistics)
-GG = GGs{1,1};
+GG = GGs{1,1};% Give data to GG
 cmp = GG-GGbp;
 GGnmerror=zeros(size(GG,1),1);
 GGerror=zeros(size(GG,1),1);

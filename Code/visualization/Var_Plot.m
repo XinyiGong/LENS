@@ -20,5 +20,5 @@ set(gca,'FontSize',18)
 axis([1 10 50 100])
 hold on
 % % % % for i=1:t
-text(x(1:3),100*y(1:3),num2str((100*y(1:3))'),'HorizontalAlignment','center','FontSize',18);
+text(x(1:4),100*y(1:4),num2str((100*y(1:4))'),'HorizontalAlignment','center','FontSize',18);
 % end
