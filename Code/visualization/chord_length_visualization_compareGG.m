@@ -19,9 +19,9 @@ colorstring = 'bgrymc';
 %     else
 %         color='b';
 %     end
-    h(1)=plot(1:300,GG(431,601:900),'Color', colorstring(1));
+    h(1)=plot(1:300,GG(217,1:300),'Color', colorstring(1));
     hold on;
-    h(2)=plot(1:300,GGbp(431,601:900),'Color', colorstring(2));
+    h(2)=plot(1:300,GGbp(217,1:300),'Color', colorstring(2));
     hold on;
 
 grid on

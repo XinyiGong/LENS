@@ -1,7 +1,7 @@
-PPlist(:,1)=(prm(:,4)==60);
-PPlist(:,2)=(prm(:,4)==70);
-PPlist(:,3)=(prm(:,4)==80);
-PPlist(:,4)=(prm(:,4)==90);
+PPlist(:,1)=(prm(:,3)==2.5);
+PPlist(:,2)=(prm(:,3)==5);
+PPlist(:,3)=(prm(:,3)==10);
+PPlist(:,4)=(prm(:,3)==15);
 
 % % for i=1:72
 fig=figure;

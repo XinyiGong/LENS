@@ -1,10 +1,10 @@
 % Define paths and names
 statpath = '/Users/Gong/Desktop/LENS/Data/Statistics/';
-statname = 'CLD2_NE_V7p5';
+statname = 'ChLOrig_HC_V7p5W70';
 trainpcpath = '/Users/Gong/Desktop/LENS/Data/PC/';
-trainpcname = 'CLD2_NE_PCAXYZ_noV7p5';
+trainpcname = 'PC_ChLOrig_HC_V7p5W70';
 savepcpath = '/Users/Gong/Desktop/LENS/Data/PC/';
-savepcname = 'project_CLD2_NE_PCAXYZ_V7p5';
+savepcname = 'project_PCs_ChLOrig_HC_V7p5W70';
 
 % load
 load([statpath,statname],'GG'); % !!!be careful with the order here!!!
