@@ -1,10 +1,10 @@
 % Define paths and names
-statpath = '/Users/Gong/Desktop/LENS/Data/Statistics/';
+statpath = '/Users/Gong/Google Drive/Data/Statistics/';
 statname = 'ChLOrig_HC';
-pppath = '/Users/Gong/Desktop/LENS/Data/PP/';
-ppname = 'metadata_ChLOrig_HC_V7p5W70';% if select according to PP
-savestatpath = '/Users/Gong/Desktop/LENS/Data/Statistics/';
-savestatname = 'ChLOrig_HC_V7p5W70';
+pppath = '/Users/Gong/Google Drive/Data/PP/';
+ppname = 'metadata_ChLOrig_HC_xd75_V7p5W70';% if select according to PP
+savestatpath = '/Users/Gong/Google Drive/Data/Statistics/';
+savestatname = 'ChLOrig_HC_xd75_V7p5W70';
 
 % Initiation
 load([statpath,statname]);

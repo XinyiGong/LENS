@@ -1,8 +1,8 @@
 % Chage directory to the folder with files
-statpath='/Users/Gong/Desktop/LENS/Data/Statistics/';
-statname = 'ChLOrig_HC_V7p5W70';
-pcpath = '/Users/Gong/Desktop/LENS/Data/PC/';
-pcname = 'PC_ChLOrig_HC_V7p5W70';
+statpath='/Users/Gong/Google Drive/Data/Statistics/';
+statname = 'ChLOrig_HC_xd75_V7p5W70';
+pcpath = '/Users/Gong/Google Drive/Data/PC/';
+pcname = 'PC_ChLOrig_HC_xd75_V7p5W70';
 
 % Initiation
 load([statpath,statname]);
