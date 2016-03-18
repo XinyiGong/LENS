@@ -1,13 +1,14 @@
 % Define paths and names
-statpath = '/Users/Gong/Desktop/LENS/Data/Statistics/';
-statname = 'ChLOrig_HC_V7p5W70';
-trainpcpath = '/Users/Gong/Desktop/LENS/Data/PC/';
-trainpcname = 'PC_ChLOrig_HC_V7p5W70';
-savepcpath = '/Users/Gong/Desktop/LENS/Data/PC/';
-savepcname = 'project_PCs_ChLOrig_HC_V7p5W70';
+statpath = '/Users/Gong/Google Drive/Data/Statistics/';
+statname = 'ChLOrig_HC_xd75_V7p5W70';
+trainpcpath = '/Users/Gong/Google Drive/Data/PC/';
+trainpcname = 'PC_ChLOrig_HC_xd75_V7p5W70';
+savepcpath = '/Users/Gong/Google Drive/Data/PC/';
+savepcname = 'project_PCs_ChLOrig_HC_xd75_V7p5W70';
 
 % load
-load([statpath,statname],'GG'); % !!!be careful with the order here!!!
+load([statpath,statname],'GGs'); % !!!be careful with the order here!!!
+GG = GGs{1,1};
 load([trainpcpath,trainpcname]);
 
 % Project to PC

@@ -1,7 +1,7 @@
 % close all
 % % % clear
 figure()
-clc
+
 
 % % % cd('/Users/Gong/Desktop/chord_length_72');
 
@@ -19,9 +19,13 @@ colorstring = 'bgrymc';
 %     else
 %         color='b';
 %     end
-    h(1)=plot(1:300,GG(217,1:300),'Color', colorstring(1));
+    h(1)=plot(1:300,GG(432,1:300),'Color', colorstring(1));
     hold on;
-    h(2)=plot(1:300,GGbp(217,1:300),'Color', colorstring(2));
+    h(2)=plot(1:300,GGbp(432,1:300),'Color', colorstring(2));
+    hold on;
+    h(3)=plot(1:300,GG(596,1:300),'Color', colorstring(1));
+    hold on;
+    h(4)=plot(1:300,GGbp(596,1:300),'Color', colorstring(2));
     hold on;
 
 grid on
@@ -32,7 +36,7 @@ set(legend(h(1:2),'Original','Model+Reconstruction'),'FontSize',36);
 % axis([0 300 0 0.09])
 % % title('V=2.5 W=60','FontSize',36)
 set(gca,'fontsize',36)
-axis([0 50 0 0.25])
+axis([0 100 0 0.25])
 
 % % % subplot(1,2,2)
 % % % plot(1:plotend,hist(1:plotend,4))

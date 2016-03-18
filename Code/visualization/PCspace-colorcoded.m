@@ -1,7 +1,7 @@
-PPlist(:,1)=(prm(:,3)==2.5);
-PPlist(:,2)=(prm(:,3)==5);
-PPlist(:,3)=(prm(:,3)==10);
-PPlist(:,4)=(prm(:,3)==15);
+PPlist(:,1)=(prm(:,4)==60);
+PPlist(:,2)=(prm(:,4)==80);
+PPlist(:,3)=(prm(:,4)==90);
+% PPlist(:,4)=(prm(:,3)==15);
 
 % % for i=1:72
 fig=figure;
@@ -21,8 +21,8 @@ s2=scatter3(PC(PPlist(:,2),1),PC(PPlist(:,2),2),PC(PPlist(:,2),3),20*ones(length
 % 20*ones(length(PPlist(:,2)),1),
 hold on
 s3=scatter3(PC(PPlist(:,3),1),PC(PPlist(:,3),2),PC(PPlist(:,3),3),20*ones(length(PC(PPlist(:,3),3)),1),'g','filled');
-hold on
-s4=scatter3(PC(PPlist(:,4),1),PC(PPlist(:,4),2),PC(PPlist(:,4),3),20*ones(length(PC(PPlist(:,4),3)),1),'k','filled');
+% % hold on
+% % s4=scatter3(PC(PPlist(:,4),1),PC(PPlist(:,4),2),PC(PPlist(:,4),3),20*ones(length(PC(PPlist(:,4),3)),1),'k','filled');
 % % hold on
 % % s5=scatter3(PC(PPlist(:,5),1),PC(PPlist(:,5),2),PC(PPlist(:,5),3),20*ones(length(PC(PPlist(:,5),3)),1),'m','filled');
 % 20*ones(length(PPlist(:,3)),1),
