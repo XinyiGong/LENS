@@ -27,4 +27,3 @@ end
 
 % Save
 save([savestatpath,savestatname],'GGs');
-
