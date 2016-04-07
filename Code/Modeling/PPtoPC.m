@@ -10,7 +10,7 @@ savepcname = 'ModelCreatedPCs_ChLOrig_HC_xd75_V7p5W70';
 
 % Loading and initialize
 load([pppath,ppname]);
-prm = prms{1};
+prm = prms{1,1};
 PCs = zeros(size(prm,1),pcnb);
 
 % Acquire PC values

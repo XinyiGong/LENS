@@ -8,7 +8,9 @@
         xlabel('Model Prediction','FontSize',20,'FontName','Times New Roman');
         ylabel('Actual Data','FontSize',20,'FontName','Times New Roman');     
         title('Goodness of Fit Scatter Plot','FontSize',20,'FontName','Times New Roman');
-        line([min([reg.yhat,PC(:,4)]),max([reg.yhat,PC(:,4)])],[min([reg.yhat,PC(:,4)]),max([reg.yhat,PC(:,4)])],'Parent',axes1,'Tag','Reference Ends','LineWidth',3,'color','black');
+        line([min([reg.yhat,PC(:,4)]),max([reg.yhat,PC(:,4)])],...
+            [min([reg.yhat,PC(:,4)]),max([reg.yhat,PC(:,4)])],...
+            'Parent',axes1,'Tag','Reference Ends','LineWidth',3,'color','black');
         axis tight
         axis square
         grid on
