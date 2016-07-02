@@ -9,16 +9,11 @@ CorrMaster
 
 %clear all
 clc
-tic
-loadpath='/nv/hp22/xgong42/scratch/GB_data';
-savepath='/nv/hp22/xgong42/scratch/2pt_data';
+loadpath='/Users/Gong/Google Drive/DataChallenge';
+savepath='/Users/Gong/Google Drive/DataChallenge/2pt_stat';
 %main=dir(loadpath);
-for i=1:5%1799
-load([loadpath,'/',num2str(i),'.mat']);
-data=noob2ptauto(BWdata,0); %preform 2pt statistics
-save([savepath,'/',num2str(i)],'data');
-save([savepath,'/',num2str(i)],'filename','-append');
-clear data;
-clear filename;
+for i=1:10%1799
+load([loadpath,'/HT650_',num2str(i),'.mat']);
+twopt=noob2ptauto(sem,1); %preform 2pt statistics
+save([savepath,'/HT650_',num2str(i),'.mat'],'twopt');
 end
-toc
