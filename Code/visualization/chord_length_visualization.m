@@ -6,13 +6,13 @@ clc
 % % % cd('/Users/Gong/Desktop/chord_length_72');
 
 i=1;
-plotend=50;
+plotend=120;
 
 % % % load(['chordlength_',num2str(i),'.mat']);
 
 colorstring = 'bgrymc';
 % % % subplot(1,2,1)
-for j=1:3
+for j=1:2
 %     if j==1
 %         color='r';
 %     elseif j==2
@@ -20,7 +20,7 @@ for j=1:3
 %     else
 %         color='b';
 %     end
-    h(j)=plot(1:plotend,str136(1:plotend,j),'Color', colorstring(j));
+    h(j)=plot(1:plotend,chord_lengths(j, 1:plotend),'Color', colorstring(j));
     hold on;
 end
 
